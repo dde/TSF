@@ -2,12 +2,27 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 #include "NpxElement.h"
 #include "StringBuffer.h"
 
 #define self(s) (*s->mtb)
 #define arraySize(a) ((sizeof a)/(sizeof a[0]))
+
+/*
+#define TAMBUILDTIME
+*/
+#ifdef TAMBUILDTIME
+clock_t us_TAMBuild;
+#define tamStart(x) x = clock();
+#define tamStop(x) us_TAMBuild += clock() - x;
+#define tamClockDcl(x) clock_t x;
+#else
+#define tamStart(x)
+#define tamStop(x)
+#define tamClockDcl(x)
+#endif
 typedef char String;
 
 static const char ELEMENT[2] = "<";
@@ -112,6 +127,7 @@ static int
 processAttrList(NpxElement *npxElement, String *str, const int ct, int idx)
 {
     int ndx, ix;
+    tamClockDcl(tam)
     int rtn[2];
     for (ix = 0; ix < ct; ++ix)
     {
@@ -123,7 +139,9 @@ processAttrList(NpxElement *npxElement, String *str, const int ct, int idx)
         }
         idx = rtn[0] + ndx + 1;
         str[ndx] = '\0';
+        tamStart(tam)
         self(npxElement).addAttr(npxElement, &str[rtn[1]], &str[ndx + 1]);
+        tamStop(tam)
     }
     str[idx] = '\0';
     return idx;
@@ -143,6 +161,7 @@ processElems(NpxElement *npxElement, String *str, const int ct, int ndx)
     int rtn[2], atn[2];
     char ch;
     NpxElement *elm;
+    tamClockDcl(tam)
     idx = ndx;
     for (ix = 0; ix < ct; ++ix)
     {
@@ -154,7 +173,9 @@ processElems(NpxElement *npxElement, String *str, const int ct, int ndx)
         {
             if (ch == *etypes[jx])
             {
+                tamStart(tam)
                 self(npxElement).add(npxElement, etypes[jx], ndx + 1, idx);
+                tamStop(tam)
                 goto l1; // effectively, continue outer
             }
         }
@@ -165,17 +186,23 @@ processElems(NpxElement *npxElement, String *str, const int ct, int ndx)
         if (*ATTRS == ch)
         {
             idx = fieldLength(str, ndx + 1, atn);
+            tamStart(tam)
             elm = newNpxElement(str, rtn[0], atn[0]);
+            tamStop(tam)
             idx = processAttrList(elm, str, atn[0], idx + 1);
         }
         else
         {
+            tamStart(tam)
             elm = newNpxElement(str, rtn[0], 0);
+            tamStop(tam)
             idx = ndx;
         }
         idx = processElems(elm, str, rtn[0], idx + 1);
         str[ndx] = '\0';
+        tamStart(tam)
         self(npxElement).addElem(npxElement, &str[rtn[1]], elm);
+        tamStop(tam)
     l1:;
     }
     return idx;
@@ -191,6 +218,10 @@ deserialize(String *str)
 {
     NpxElement *docElement;
     int lst, ndx, idx, rtn[2];
+#ifdef TAMBUILDTIME
+    us_TAMBuild = 0;
+#endif
+    tamClockDcl(tam)
     lst = (int)strlen(str);
     ndx = fieldLength(str, 0, rtn);
     if (*ATTRS != str[ndx]) /* no count of document level lexical units present - 1 is implied */
@@ -203,7 +234,9 @@ deserialize(String *str)
         ++rtn[0];
         ++ndx;
     }
+    tamStart(tam)
     docElement = newNpxElement(str, rtn[0], 0);
+    tamStop(tam)
     idx = processElems(docElement, str, rtn[0], ndx);
     if (lst != idx)
         fprintf(stderr, "TFX string not completely processed %d vs %d\n", lst, idx);
@@ -287,6 +320,14 @@ int charLength(char *buf, int val, int len)
     }
     buf[ix] = '\0';
     return ln;
+}
+clock_t getTAMTime()
+{
+#ifdef TAMBUILDTIME
+    return us_TAMBuild;
+#else
+    return 0;
+#endif
 }
 char *
 serialize(NpxElement *doc)

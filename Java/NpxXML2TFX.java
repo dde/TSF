@@ -98,21 +98,23 @@ transformAttrs(NamedNodeMap attrs, int ct, CharacterBuffer sb)
   Attr attr;
   String val, nm;
   int i, ln, length;
-  sb.append(ATTRS);
   sb.append(ct);
-  length = 2 + numLength(ct);
-  sb.append(ATTR);
+  sb.append(ATTRS);
+  length = 1 + numLength(ct);
+  //sb.append(ATTR);
   for (i = 0; i < ct; ++i)  // the DOM parser apparently sorts attributes by name, losing their original order
   {
     attr = (Attr)attrs.item(i);
     nm = attr.getName();
     val = attr.getValue();
-    ln = utf8Length(val);
+    //ln = utf8Length(val);
+    ln = val.length();
     sb.append(ln);
     sb.append(nm);
     sb.append(ATTR);
     sb.append(val);
-    length += 1 + numLength(ln) + utf8Length(nm) + ln;
+    //length += 1 + numLength(ln) + utf8Length(nm) + ln;
+    length += 1 + numLength(ln) + nm.length() + ln;
   }
   return length;
 }
@@ -139,17 +141,20 @@ transformElement(Element elm, CharacterBuffer rslt)
     elwidth[count] += 1;
   else
     elwidth[WIDTH] += 1;
+  act = 0;
+  if (null != (attrs = elm.getAttributes()) && (act = attrs.getLength()) > 0)
+    count += 1;
   rslt.append(count);
   nm = elm.getNodeName();
   rslt.append(nm);
-  length = 1 + utf8Length(nm) + numLength(count);
-  attrs = elm.getAttributes();
-  if (attrs != null && (act = attrs.getLength()) > 0)
+  rslt.append(ELEMENT);
+  //length = 1 + utf8Length(nm) + numLength(count);
+  length = 1 + nm.length() + numLength(count);
+  if (attrs != null && act > 0)
   {
     length += transformAttrs(attrs, act, rslt);
     attributes += act;
   }
-  rslt.append(ELEMENT);
   node = elm.getFirstChild();
   while (node != null)
   {
@@ -181,7 +186,8 @@ transformDoctype(DocumentType dtp, CharacterBuffer sb)
   String sys, pub, pit, ids, intsubset;
   ++doctypes;
   pit = dtp.getName();
-  ln = utf8Length(pit);
+  //ln = utf8Length(pit);
+  ln = pit.length();
   pub = dtp.getPublicId();
   sys = dtp.getSystemId();
   intsubset = dtp.getInternalSubset();
@@ -192,7 +198,8 @@ transformDoctype(DocumentType dtp, CharacterBuffer sb)
     ids += " SYSTEM " + sys;
   if (null != intsubset)
     ids += " [" + intsubset + "]";
-  ln += utf8Length(ids);
+  //ln += utf8Length(ids);
+  ln += ids.length();
   sb.append(ln);
   sb.append(DOCTYPE);
   sb.append(pit);
@@ -223,7 +230,8 @@ transformCdata(CharacterData cdn, CharacterBuffer sb)
     ++cdatas;
   }
   cd = cdn.getData();
-  ln = utf8Length(cd);
+  //ln = utf8Length(cd);
+  ln = cd.length();
   sb.append(ln);
   sb.append(ctype);
   if (seeWhitespace)
@@ -259,9 +267,11 @@ transformPI(ProcessingInstruction pin, CharacterBuffer sb)
   String pit, pid;
   ++procinsts;
   pit = pin.getTarget();
-  ln = utf8Length(pit);
+  //ln = utf8Length(pit);
+  ln = pit.length();
   pid = pin.getData();
-  ln += utf8Length(pid) + 1;
+  //ln += utf8Length(pid) + 1;
+  ln += pid.length() + 1;
   sb.append(ln);
   sb.append(PI);
   sb.append(pit);
@@ -275,7 +285,7 @@ transform(Document doc)
   Node sq;
   CharacterBuffer rslt = new CharacterBuffer();
   int ln, docCt;
-  docCt = -1;
+  docCt = 0;
   sq = doc.getFirstChild();
   while (sq != null)
   {
@@ -283,7 +293,7 @@ transform(Document doc)
     sq = sq.getNextSibling();
   }
   ln = 0;
-  if (docCt > 0)
+  if (docCt > 1)
   {
     rslt.append(docCt);
     rslt.append(ATTRS);
@@ -303,9 +313,10 @@ transform(Document doc)
     sq = sq.getNextSibling();
   }
   bytes = ln;
-  if (rslt.utf8Length() != ln)
+  //if (rslt.utf8Length() != ln)
+  if (rslt.length() != ln)
   {
-    System.out.println(String.format("length %d != CharacterBuffer length %d", ln, rslt.utf8Length()));
+    System.out.println(String.format("length %d != CharacterBuffer length %d (utf8len=%d)", ln, rslt.length(), rslt.utf8Length()));
   }
   return rslt;
 }
@@ -417,7 +428,8 @@ class NpxEl
         attr = (Attr)attrs.item(i);
         nm = attr.getName();
         val = attr.getValue();
-        n = utf8Length(val);
+        //n = utf8Length(val);
+        n = val.length();
         ln += n + numLength(n);
       }
     }

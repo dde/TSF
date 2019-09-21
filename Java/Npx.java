@@ -127,10 +127,11 @@ main(String[] args) throws Exception
         fil = new File(ifil, files[ix]);
       else
         fil = new File(files[ix]);
+      System.out.println(String.format("deserializing %s", files[ix]));
       npo = new NpxDeserial();
       if (null == (npxElement = npo.deserialize(fil)))
         continue;
-      System.out.println(String.format("%s", npxElement.toString()));
+      System.out.println(String.format("%s", new NpxTFX2XML(opt.isUseEmpty()).toString(npxElement)));
     }
     if (opt.isFileOutput())
     {
@@ -139,15 +140,16 @@ main(String[] args) throws Exception
       if (directory)
       {
         if (opt.isConvert2TFX())
-          tfil = new File(ifil, files[ix].substring(0, jx) + ".txt");
+          tfil = new File(ifil, files[ix].substring(0, jx) + ".tsf");
         if (opt.isRebuild())
-          ofil = new File(ifil, files[ix].substring(0, jx) + ".xml.out");  }
+          ofil = new File(ifil, files[ix].substring(0, jx) + ".tsf.out");
+      }
       else
       {
         if (opt.isConvert2TFX())
-          tfil = new File(files[ix].substring(0, jx) + ".txt");
+          tfil = new File(files[ix].substring(0, jx) + ".tsf");
         if (opt.isRebuild())
-          ofil = new File(files[ix].substring(0, jx) + ".xml.out");
+          ofil = new File(files[ix].substring(0, jx) + ".tsf.out");
       }
       try
       {
@@ -212,6 +214,7 @@ static class Options
   int ix, jx;
   boolean directory = false;
   boolean convert2TFX = false;
+  boolean useEmpty = false;
   boolean rebuild = false;
   boolean fileOutput = false;
   boolean deserialize = false;
@@ -223,13 +226,14 @@ static class Options
                            "java edu.pace.csis.evans.npx.Npx [options] file\n" +
                            " file is an input file, or a directory of potential input files" +
                            "where options include\n" +
-                           " -c convert files to TFX format" +
-                           " -d deserialize TFX files" +
-                           " -o write result to output file(s)" +
-                           " -p performance tests" +
-                           " -r rebuild XML file from TFX file - creates .xml.out file" +
-                           " -s suffix of files on which to operate (default .xml, may occur multiple times)" +
-                           " -x deserialize XML files"
+                           " -c convert files to TFX format\n" +
+                           " -d deserialize TFX files\n" +
+                           " -e when generating XML, use empty elemets\n" +
+                           " -o write result to output file(s)\n" +
+                           " -p performance tests\n" +
+                           " -r rebuild XML file from TFX file - creates .xml.out file\n" +
+                           " -s suffix of files on which to operate (default .xml, may occur multiple times)\n" +
+                           " -x deserialize XML files\n"
     );
     throw new IllegalArgumentException();
   }
@@ -253,6 +257,10 @@ Options(String[] args)
       else if (args[ix].equals("-d"))
       {
         deserialize = true;
+      }
+      else if (args[ix].equals("-e"))
+      {
+        useEmpty = true;
       }
       else if (args[ix].equals("-o"))
       {
@@ -283,6 +291,12 @@ Options(String[] args)
         usage();
     }
   }
+  if (0 == fileSuffix.length)
+  {
+    tmp = expand(fileSuffix, fileSuffix.length + 1);
+    tmp[fileSuffix.length] = ".xml";
+    fileSuffix = tmp;
+  }
 }
   public String getInfile()
   {
@@ -303,6 +317,10 @@ Options(String[] args)
   public boolean isRebuild()
   {
     return rebuild;
+  }
+  public boolean isUseEmpty()
+  {
+    return useEmpty;
   }
   public boolean isFileOutput()
   {

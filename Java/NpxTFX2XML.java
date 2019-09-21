@@ -2,97 +2,168 @@ package edu.pace.csis.evans.npx;
 
 import java.io.File;
 
-public class NpxTFX2XML
+public class NpxTFX2XML extends NpxRoot
 {
-  private boolean useEmpty = false;
+  private boolean useEmpty;
 public NpxTFX2XML()
 {
+  useEmpty = true;
 }
 public NpxTFX2XML(boolean emp)
 {
   useEmpty = emp;
 }
 private void
-toString(NpxElement elm, StringBuilder sb)
+xmlEscape(String str, StringBuilder sb)
 {
-  int ix, ax, ac, siz;
+  int ix, end;
+  char chr;
+  end = str.length();
+ outer:
+  {
+    for (ix = 0; ix < end; ++ix)
+    {
+      chr = str.charAt(ix);
+      if (chr >= ctype.length)
+        continue;
+      if (0 != (ctype[chr] & XMLE))
+        break outer;
+    }
+    sb.append(str);
+    return;
+  }
+  sb.append(str, 0, ix);
+  for (; ix < end; ++ix)
+  {
+    chr = str.charAt(ix);
+    if (chr >= ctype.length || 0 == (ctype[chr] & XMLE))
+    {
+      sb.append(chr);
+      continue;
+    }
+    switch (chr)
+    {
+    case START_TAG:
+      sb.append("&lt;");
+      break;
+    case END_TAG:
+      sb.append("&gt;");
+      break;
+    case AMP:
+      sb.append("&amp;");
+      break;
+    case QUOT:
+      sb.append("&quot;");
+      break;
+    case APOS:
+      sb.append("&apos;");
+      break;
+    default:
+      sb.append("&#").append(chr).append(";");
+      break;
+    }
+  }
+}
+//private boolean
+//hasXMLAttrs()
+//{
+//  return ATTRS == elemTypes[0];
+//}
+//private boolean
+//isEmptyElement()
+//{
+//  return 0 == siz && ATTRS == elemTypes[0];
+//}
+private void emptyClose(StringBuilder sb, String tag)
+{
+  if (useEmpty)
+  {
+    sb.append('/');
+  }
+  else
+  {
+    sb.append("</");
+    sb.append(tag);
+  }
+  sb.append('>');
+}
+private void
+toString(NpxElement npx, StringBuilder sb)
+{
+  int ix, jx, siz;
+  char ctyp;
+  NpxElement elm, atr;
+  String nam;
   Object obj;
-  NpxElement chelm;
-  String elmName;
-  siz = elm.getCount();
+  siz = npx.getCount();
   for (ix = 0; ix < siz; ++ix)
   {
-    obj = elm.getElemVal(ix);
-    elmName = elm.getElemName(ix);
-    if (0 == elmName.length())
+    ctyp = npx.getElemType(ix);
+    obj = npx.getElemVal(ix);
+    switch (ctyp)
     {
-      throw new IllegalArgumentException(String.format("empty element name at element %d", ix));
-    }
-    switch (elmName.charAt(0))
-    {
-    case '[':
-      sb.append((String)obj);
+    case ELEMENT:
+      nam = npx.getElemName(ix);
+      sb.append('<');
+      sb.append(nam);
+      if (null != obj)
+      {
+        elm = (NpxElement)obj;
+        if (ATTRS == elm.getElemType(0))
+        {
+          atr = (NpxElement)elm.getElemVal(0);
+          for (jx = 0; jx < atr.getCount(); ++jx)
+          {
+            sb.append(' ');
+            sb.append(atr.getElemName(jx));
+            sb.append("=\"");
+            xmlEscape((String)atr.getElemVal(jx), sb);
+            sb.append("\"");
+          }
+          if (1 == elm.getCount())
+          {
+            emptyClose(sb, nam);
+            continue;
+          }
+        }
+        sb.append('>');
+        toString(elm, sb);
+        if (1 < elm.getCount() || ATTRS != elm.getElemType(0))  // element is not empty
+        {
+          sb.append("</");
+          sb.append(nam);
+          sb.append('>');
+        }
+      }
+      else
+      {
+        if (!useEmpty)
+          sb.append('>');
+        emptyClose(sb, nam);
+      }
       break;
-    case ']':
-      sb.append("<![CDATA[");
-      sb.append((String)obj);
-      sb.append("]]>");
+    case ATTRS:
       break;
-    case '!':
+    case TEXT:
+      xmlEscape((String)obj, sb);
+      break;
+    case DOCTYPE:
       sb.append("<!DOCTYPE ");
       sb.append((String)obj);
       sb.append(">");
       break;
-    case '-':
+    case COMMENT:
       sb.append("<!--");
       sb.append((String)obj);
       sb.append("-->");
       break;
-    case '?':
+    case PI:
       sb.append("<?");
       sb.append((String)obj);
       sb.append("?>");
       break;
     default:
-      if (!(obj instanceof NpxElement))
-      {
-        throw new IllegalArgumentException("null or incorrect NpxElement instance");
-      }
-      chelm = (NpxElement)obj;
-      sb.append('<');
-      sb.append(elm.getElemName(ix));
-      if (0 != (ac = chelm.getAttrCount()))
-      {
-        for (ax = 0; ax < ac; ++ax)
-        {
-          sb.append(' ');
-          sb.append(chelm.getAttrName(ax));
-          sb.append("=\"");
-          sb.append(chelm.getAttrVal(ax));
-          sb.append('"');
-        }
-      }
-      if (0 != chelm.getCount())
-      {
-        sb.append('>');
-        toString(chelm, sb);
-        sb.append('<');
-        sb.append('/');
-        sb.append(elm.getElemName(ix));
-      }
-      else
-      {
-        if (useEmpty)
-        {
-          sb.append('/');
-        }
-        else
-        {
-          sb.append("></");
-          sb.append(elm.getElemName(ix));
-        }
-      }
-      sb.append('>');
+      sb.append("&#").append(ctyp).append(";");
       break;
     }
   }
@@ -116,7 +187,7 @@ public static void main(String[] args)
   file = new File(fileName);
   if (null == (npxElement = npo.deserialize(file)))
   {
-    System.out.println(String.format("NPX deserialization failure"));
+    System.out.println("NPX deserialization failure");
     return;
   }
   System.out.println(String.format("%s", xme.toString(npxElement)));

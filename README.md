@@ -1,1 +1,5 @@
 # TSF - Transaction Serialization Format
+
+Source repository for TSF code.  Java code is in the Java directory.  C code is in the C directory.
+
+The Transaction Serial Format (TSF) and the Transaction Array Model (TAM) provide full, efficient, transaction serialization facilities for devices with limited onboard energy, such as those in an Internet of Things (IoT) network.  TSF provides a compact, non-parsed, format that requires minimal processing for transaction deserialization.  TAM provides an internal data structure that needs minimal dynamic storage and directly uses the elements of TSF.  The simple lexical units of TSF do not require parsing. The lexical units contain enough information to allocate the internal TAM data structure efficiently.  TSF generality is equivalent to XML and JSON.  TSF represents any XML document or JSON object without loss of information, including whitespace.  A performance comparison of a C reference implementation of TSF and TAM to the popular Expat XML library, also written in C, shows that TSF reduces deserialization processor time by more than 80%

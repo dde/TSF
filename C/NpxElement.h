@@ -9,29 +9,26 @@ typedef char String;
 typedef struct NpxElement NpxElement;
 typedef struct NpxElementMtb
 {
-    void (*addAttr)(NpxElement *self, char *nm, char *val);
-    void (*add)(NpxElement *, const char *ch, int ndx, int idx);
-    void (*addElem)(NpxElement *, char *nm, NpxElement *elm);
-    void (*forEachContent)  (NpxElement *s, void *prm, void (*cb)(NpxElement *, int, char *nm, void *obj, void *prm));
-    void (*forEachAttribute)(NpxElement *s, void *prm, void (*cb)(NpxElement *, int, char *nm, char *val, void *prm));
-    int  (*isElement)(NpxElement *, char *obj);
-    int  (*isText)(NpxElement *, char *obj);
-    int  (*isCdata)(NpxElement *, char *obj);
-    int  (*isComment)(NpxElement *, char *obj);
-    int  (*isProcInst)(NpxElement *, char *obj);
-    int  (*isDoctype)(NpxElement *, char *obj);
+    void (*add)(NpxElement *, const char *str, int nfm, int ndx, int idx, char typ);
+    void (*addElem)(NpxElement *, char *nm, NpxElement *elm, char typ);
+    void (*forEachContent)  (NpxElement *s, void *prm, void (*cb)(NpxElement *, int, char *nm, void *obj, char typ, void *prm));
+    int  (*isSLU)(NpxElement *, char *tp);
+    int  (*isPLU)(NpxElement *, char *tp);
     char *(*getObjName)(NpxElement *, void *obj);
     void *(*getObjByName)(NpxElement *, char *nm);
     int  (*hasContent)(NpxElement *);
-    int  (*hasAttributes)(NpxElement *);
     int  (*getElementCount)(NpxElement *s);
-    int  (*getAttributeCount)(NpxElement *s);
+    char (*getElementType)(NpxElement *s, int sub);
+    char *(*getElementName)(NpxElement *s, int sub);
+    void *(*getElementValue)(NpxElement *s, int sub);
+    NpxElement *(*getParent)(NpxElement *s);
+    char *(*getTransaction)(NpxElement *s);
 } NpxElementMtb;
 struct NpxElement
 {
     NpxElementMtb *mtb;
 };
-NPXELEMENT_API NpxElement *newNpxElement(String *str, int esiz, int asiz);
+NPXELEMENT_API NpxElement *newNpxElement(String *str, int esiz, NpxElement *par);
 NPXELEMENT_API void delNpxElement(NpxElement *);
 #undef NPXELEMENT_API
 #endif

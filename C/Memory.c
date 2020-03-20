@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <ctype.h>
+/* #define MEMORY_TRAK */
 #define MEMORY_EXPORT
 #include "Memory.h"
 /**

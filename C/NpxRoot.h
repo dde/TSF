@@ -1,46 +1,47 @@
-package edu.pace.csis.evans.npx;
+//#include "Sstring.h"
+static const unsigned char ST = 0x01;
+static const unsigned char SL = 0x02;
+static const unsigned char PL = 0x04;
+static const unsigned char XMLE = 0x08;
+static const char ELEMENT[2] = "<";
+static const char CDATA[2] = "]";
+static const char PI[2] = "?";
+static const char COMMENT[2] = "+";
+static const char TEXT[2] = "[";
+static const char ATTRS[2] = "=";
+static const char ATTR[2] = "[";  // TEXT
+static const char DOCTYPE[2] = "!";
+static const char ARRAY[2] = "@";
+static const char ENAME[2] = "\"";
+static const char BLANK[2] = " ";
+static const char ESCAPE[2] = "\\";
+static const char START_TAG[2] = "<";  // ELEMENT
+static const char END_TAG[2] = ">";
+static const char AMP[2] = "&";
+static const char QUOT[2] = "\"";
+static const char APOS[2] = "'";
 
-public class NpxRoot
-{
-protected static final byte STOP = 0x01;
-protected static final byte SLU = 0x02;
-protected static final byte PLU = 0x04;
-protected static final byte XMLE = 0x08;
-protected static final byte ctype[] = new byte[128];
-protected static final char ELEMENT = '<';
-protected static final char CDATA = ']';
-protected static final char PI = '?';
-protected static final char COMMENT = '+';
-protected static final char TEXT = '[';
-protected static final char ATTRS = '=';
-protected static final char ATTR = TEXT;
-protected static final char DOCTYPE = '!';
-protected static final char ARRAY = '@';
-protected static final char ENAME = '"';
-protected static final char BLANK = ' ';
-protected static final char ESCAPE = '\\';
-protected static final char START_TAG = ELEMENT;
-protected static final char END_TAG = '>';
-protected static final char AMP = '&';
-protected static final char QUOT = '"';
-protected static final char APOS = '\'';
-
-static {
-  ctype[ELEMENT] = STOP | SLU;
-  ctype[ATTRS]   = STOP | SLU;
-  ctype[ARRAY]   = STOP | SLU;
-  ctype[CDATA]   = STOP | PLU;
-  ctype[PI]      = STOP | PLU;
-  ctype[COMMENT] = STOP | PLU;
-  ctype[TEXT]    = STOP | PLU;
-  ctype[DOCTYPE] = STOP | PLU;
-  ctype[START_TAG] |= XMLE;
-  ctype[END_TAG]   |= XMLE;
-  ctype[AMP]       |= XMLE;
-  ctype[QUOT]      |= XMLE;
-  ctype[APOS]      |= XMLE;
-}
-int utf8Length(String str)
+static unsigned char ctype[128] = {
+      /* 0      1      2      3      4      5      6      7      8      9      a      b      c      d      e      f   */
+      /* NUL    SOH    STX    ETX    EOT    ENQ    ACK    BEL    BS     TAB    LF     VT     FF     CR     SO     SI  */
+/* 0 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      /* DLE    DC1    DC2    DC3    DC4    NAK    SYN    ETB    CAN    EM     SUB    ESC    FS     GS     RS     US  */
+/* 1 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      /* SPC    !      "      #      $      %      &      '      (      )      *      +      ,      -      .      /   */
+/* 2 */  0,     ST|PL, 0,     0,     0,     0,     0,     0,     0,     0,     0,     ST|PL, 0,     0,     0,     0,
+      /* 0      1      2      3      4      5      6      7      8      9      :      ;      <      =      >      ?   */
+/* 3 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     ST|SL, ST|SL, 0,     ST|PL,
+      /* @      A      B      C      D      E      F      G      H      I      J      K      L      M      N      O   */
+/* 4 */  ST|SL, 0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      /* P      Q      R      S      T      U      V      W      X      Y      Z      [      \      ]      ^      _   */
+/* 5 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     ST|PL, 0,     ST|PL, 0,     0,
+      /* `      a      b      c      d      e      f      g      h      i      j      k      l      m      n      o   */
+/* 6 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      /* p      q      r      s      t      u      v      w      x      y      z      {      |      }      ~      DEL */
+/* 7 */  0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+};
+/*
+static int utf8Length(String str)
 {
   int ix, ln, utf8len;
   char ch;
@@ -69,7 +70,8 @@ int utf8Length(String str)
   }
   return utf8len;
 }
-int
+*/
+static int
 numLength(int n)
 {
   int ln;
@@ -85,35 +87,4 @@ numLength(int n)
     ln = (n < 1000000000) ? 9 : 10;
   return ln;
 }
-/**
- * Convert the passed digit character to its integer value.
- * @param ch a digit character
- * @return the passed character's integer value, 0 for non-digits
- */
-protected int numericValue(char ch)
-{
-  switch (ch)
-  {
-  case '1':
-    return 1;
-  case '2':
-    return 2;
-  case '3':
-    return 3;
-  case '4':
-    return 4;
-  case '5':
-    return 5;
-  case '6':
-    return 6;
-  case '7':
-    return 7;
-  case '8':
-    return 8;
-  case '9':
-    return 9;
-  default:
-    return 0;
-  }
-}
-}
+

@@ -8,39 +8,6 @@ import java.io.InputStreamReader;
 public class NpxJDeserial extends NpxRoot
 {
   //NpxDataType dt = new NpxDataType();
-  protected static final char ARRAY = '@';
-
-/**
- * Convert the passed digit character to its integer value.
- * @param ch a digit character
- * @return the passed character's integer value, 0 for non-digits
- */
-private int numericValue(char ch)
-{
-  switch (ch)
-  {
-  case '1':
-    return 1;
-  case '2':
-    return 2;
-  case '3':
-    return 3;
-  case '4':
-    return 4;
-  case '5':
-    return 5;
-  case '6':
-    return 6;
-  case '7':
-    return 7;
-  case '8':
-    return 8;
-  case '9':
-    return 9;
-  default:
-    return 0;
-  }
-}
 /**
  * Scan and convert a sequence of digit characters in the passed string to an integer.
  * @param str the string to be scanned
@@ -137,24 +104,24 @@ processElems(NpxElement npxElement, String str, int ct, int ndx)
     if (ch == TEXT || ch == CDATA || ch == COMMENT || ch == PI || ch == DOCTYPE)
     {
       idx = rtn[0] + ++ndx;
-      npxElement.add(str, ch, ndx, idx);
+      //npxElement.add(str, ch, ndx, idx);
       continue;
     }
     while ((ch = str.charAt(ndx)) != ATTRS && ch != ELEMENT && ch != ARRAY)
     {
       ++ndx;
     }
-    if (ATTRS == ch)
-    {
-      idx = fieldLength(str, ndx + 1, atn);
-      elm = new NpxElement(rtn[0], atn[0]);
-      idx = processAttrList(elm, str, atn[0], idx + 1);
-    }
-    else
-    {
-      elm = new NpxElement(rtn[0], 0);
+//    if (ATTRS == ch)
+//    {
+//      idx = fieldLength(str, ndx + 1, atn);
+//      elm = new NpxElement(rtn[0], atn[0]);
+//      idx = processAttrList(elm, str, atn[0], idx + 1);
+//    }
+//    else
+//    {
+      elm = new NpxElement(rtn[0], npxElement);
       idx = ndx;
-    }
+//    }
     idx = processElems(elm, str, rtn[0], idx + 1);
     npxElement.addElemX(str, rtn[1], ndx, elm);
   }
@@ -175,24 +142,24 @@ processElems(NpxElement npxElement, char[] str, int ct, int ndx)
     if (ch == TEXT || ch == CDATA || ch == COMMENT || ch == PI || ch == DOCTYPE)
     {
       idx = rtn[0] + ++ndx;
-      npxElement.add(str, ch, ndx, idx);
+      //npxElement.add(str, ch, ndx, idx);
       continue;
     }
     while ((ch = str[ndx]) != ATTRS && ch != ELEMENT && ch != ARRAY)
     {
       ++ndx;
     }
-    if (ATTRS == ch)
-    {
-      idx = fieldLength(str, ndx + 1, atn);
-      elm = new NpxElement(rtn[0], atn[0]);
-      idx = processAttrList(elm, str, atn[0], idx + 1);
-    }
-    else
-    {
-      elm = new NpxElement(rtn[0], 0);
+//    if (ATTRS == ch)
+//    {
+//      idx = fieldLength(str, ndx + 1, atn);
+//      elm = new NpxElement(rtn[0], atn[0]);
+//      idx = processAttrList(elm, str, atn[0], idx + 1);
+//    }
+//    else
+//    {
+      elm = new NpxElement(rtn[0], npxElement);
       idx = ndx;
-    }
+//    }
     idx = processElems(elm, str, rtn[0], idx + 1);
     npxElement.addElemX(str, rtn[1], ndx, elm);
   }
@@ -210,19 +177,22 @@ deserialize(String str)
   NpxElement docElement;
   int lst, ndx, idx;
   int[] rtn = new int[2];
+  char typ;
   lst = str.length();
   ndx = fieldLength(str, 0, rtn);
   if (ATTRS != str.charAt(ndx)) /* no count of document level lexical units present - 1 is implied */
   {
     rtn[0] = 1;
     idx = 0;
+    typ = ELEMENT;
   }
   else
   {
     ++rtn[0];
     idx = ndx + 1;
+    typ = ATTRS;
   }
-  docElement = new NpxElement(rtn[0], 0);
+  docElement = new NpxElement(rtn[0], null);
   idx = processElems(docElement, str, rtn[0], idx);
   if (lst != idx)
     System.err.printf("TFX string not completely processed %d vs %d\n", lst, idx);
@@ -242,6 +212,7 @@ deserialize(File flnm)
   int[] rtn = new int[2];
   InputStreamReader ism;
   char[] buf;
+  char typ;
   filsz = (int)flnm.length();
   buf = new char[filsz];
   try
@@ -261,13 +232,15 @@ deserialize(File flnm)
   {
     rtn[0] = 1;
     idx = 0;
+    typ = ELEMENT;
   }
   else
   {
     ++rtn[0];
     idx = ndx + 1;
+    typ = ATTRS;
   }
-  docElement = new NpxElement(rtn[0], 0);
+  docElement = new NpxElement(rtn[0], null);
   idx = processElems(docElement, buf, rtn[0], idx);
   if (lst != idx)
     System.err.printf("TFX string not completely processed %d vs %d\n", lst, idx);

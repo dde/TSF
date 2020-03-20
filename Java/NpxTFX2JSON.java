@@ -113,25 +113,25 @@ private void attrString(NpxElement elm, StringBuilder sb)
 {
   int ac, ax;
   boolean first;
-  if (0 != (ac = elm.getAttrCount()))
-  {
-    sb.append("\"attr\":{");
-    first = true;
-    for (ax = 0; ax < ac; ++ax)
-    {
-      if (!first)
-      {
-        sb.append("\",");
-      }
-      sb.append('"');
-      sb.append(elm.getAttrName(ax));
-      sb.append("\":\"");
-      sb.append(escape(elm.getAttrVal(ax)));
-      sb.append('"');
-      first = false;
-    }
-    sb.append("},");
-  }
+//  if (0 != (ac = elm.getAttrCount()))
+//  {
+//    sb.append("\"attr\":{");
+//    first = true;
+//    for (ax = 0; ax < ac; ++ax)
+//    {
+//      if (!first)
+//      {
+//        sb.append("\",");
+//      }
+//      sb.append('"');
+//      sb.append(elm.getAttrName(ax));
+//      sb.append("\":\"");
+//      sb.append(escape(elm.getAttrVal(ax)));
+//      sb.append('"');
+//      first = false;
+//    }
+//    sb.append("},");
+//  }
 }
 /**
  * A convenience function to identify elements of ignorable whitespace, a string whose

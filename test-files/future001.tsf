@@ -1,0 +1,1222 @@
+25specification<1[
+1type<18[Mana Scenario File1[
+1version<8[ 4.04.1 2[
+
+3description<202[
+Futuristic scenario: Depicits a small force manoeuvring with the 
+support of a futuristic precision fire area weapon.
+.
+.
+Updated July 2004 .
+David Galligan .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+1image<2=10name[Mogo20.bmp6type[splash1[
+2[
+
+13multirun<4[
+   1seed<13[ -1877436590 4[
+   1side<3[ 3 4[
+   1BlueLimit<2[104[
+   1RedLimit<3[ 5 4[
+   1MultiResultsName<12[ future.csv 4[
+   1maxruns<4[ 20 1[
+2[
+
+41Battlefield<4[
+   1x_range<5[ 200 4[
+   1y_range<5[ 200 4[
+   1LowRealY<5[ 0.0 4[
+   1HighRealY<5[ 0.0 4[
+   1LowRealX<5[ 0.0 4[
+   1HighRealX<5[ 0.0 4[
+   1LowRealElev<3[ 0 4[
+   1HighRealElev<5[ 255 4[
+   1SAMode<14[ Map Location 4[
+   1SAMgNewCt<12[ Contact ID 4[
+   1LOSMode<10[ Advanced 4[
+   1UseNonStdTerrains<4[ No 4[
+   1ContactRad<6[ 6.01 4[
+   1TerrainRange<3[ 5 4[
+   1NumSquads<3[ 3 4[
+   1image<2=10name[convoy.bmp3type[map4[
+   1image<2=10name[Market.bmp10type[background4[
+   1TimeStep<3[ 1 4[
+   1MaxSteps<6[ 2000 4[
+   53settings<7[
+      1ShowPath<5[ Yes 7[
+      1ShowFlags<5[ Yes 7[
+      1CalcLOS<5[ Yes 7[
+      1Networking<5[ Yes 7[
+      1IntraNet<5[ Yes 7[
+      1RecPositions<4[ No 7[
+      1RecFirstEnDetections<4[ No 7[
+      1RecRedDetections<4[ No 7[
+      1RecComms<4[ No 7[
+      1RecMDetects<4[ No 7[
+      1RecSteps<4[ No 7[
+      1RecCasLocs<4[ No 7[
+      1StreamDatatoTCP<4[ No 7[
+      1StreamDatatoUDP<4[ No 7[
+      1SoundFx<5[ Yes 7[
+      1LockSeed<4[ No 7[
+      1StopBlueDead<5[ Yes 7[
+      1StopRedDead<4[ No 7[
+      1ShowBackground<4[ No 7[
+      1ShowGrid<4[ No 7[
+      1ShowInteractions<5[ Yes 7[
+      1ShowFiring<5[ Yes 7[
+      1ShowAgtOrientation<4[ No 7[
+      1RecAgentEndState<4[ No 7[
+      1ShowDeadIcons<5[ Yes 7[
+      1RecDetects<4[ No 4[
+   1[
+2[
+
+85Squad<4[
+   1SquadType<9[ Trooper 4[
+   1SquadActive<5[ Yes 4[
+   1SquadCommsEnable<5[ Yes 4[
+   1index<3[ 1 4[
+   1ParentSqd<3[ 0 4[
+   1SquadName<6[ Blue 4[
+   1NumAgents<2[104[
+   1SquadOnly<5[ Yes 4[
+   1Use_Momentum<5[ Yes 4[
+   1Use_Diag<4[ No 4[
+   1MultiOccupy<4[ No 4[
+   1AutoRflAgt<4[ No 4[
+   1Use_Going<5[ Yes 4[
+   1Move_Together<4[ No 4[
+   1MoveSelectType<11[ Precision 4[
+   7Homes<7[
+      1HomeNumberOf<3[ 1 7[
+      1HomeDistribution<14[ Proportional 7[
+      13HomePos<10[
+         1Home_x_coord<3[ 5 10[
+         1Home_y_coord<3[ 5 10[
+         1HomeWid<4[ 26 10[
+         1HomeHgt<4[ 26 10[
+         1HomeExclDist<3[ 0 10[
+         9Waypoints<13[
+            1numberOf<3[ 1 13[
+            1loop<5[ Yes 13[
+            9waypoint<16[
+               1x_coord<5[ 192 16[
+               1y_coord<5[ 192 16[
+               1Wid<3[ 0 16[
+               1Hgt<3[ 0 13[
+            13[
+            1HaveAltGoal<4[ No 10[
+         7[
+      4[
+   4[
+   1FlagIcon<3[ 2 4[
+   3Comms<7[
+      29CommLink<10[
+         1DestinationSquad<3[ 3 10[
+         1Latency<3[ 0 10[
+         1Quality<6[ High 10[
+         1Reliability<9[ 100.000 10[
+         1Accuracy<9[ 100.000 10[
+         1PosUncertainty<3[ 0 10[
+         1MaxAge<4[ -1 10[
+         1Capacity<8[ 10.000 10[
+         1CommRange<6[ 1000 10[
+         1BeaconPeriod<3[ 5 10[
+         1BufferSize<4[ -1 10[
+         1NMGroup<3[ 0 10[
+         1PriorityLink<4[ No 10[
+         17CommSettings<13[
+            1PassSelf<4[ No 13[
+            1PassFriend<4[ No 13[
+            1PassUnknown<4[ No 13[
+            1PassNeutral<4[ No 13[
+            1PassEnemy<5[ Yes 13[
+            1PassTP<5[ Yes 13[
+            1PassCOP<5[ Yes 13[
+            1Guaranteed<4[ No 10[
+         7[
+      4[
+   4[
+   1SALockoutTime<3[ 0 4[
+   1OrgThreatRate<5[ 100 4[
+   1InorgThreatRate<5[ 100 4[
+   1OrgFuseRad<3[ 0 4[
+   1OrgFuseTime<3[ 0 4[
+   1InorgFuseRad<3[ 0 4[
+   1InorgFuseTime<3[ 0 4[
+   1ForceOrgUpdateByCtID<4[ No 4[
+   1ForceInorgUpdateByCtID<4[ No 4[
+   1ResOrgUnknown<4[ No 4[
+   1ResInorgUnknown<4[ No 4[
+   1PathWidth<3[ 0 4[
+   1TurretBearing<3[ 0 4[
+   1SquadOrientation<3[ 0 4[
+   1CommsDelay<3[ 0 4[
+   1Sound<3[ 4 4[
+   1Precision<5[ 150 4[
+   1FuelTank<4[ 20 4[
+   1CommsQuality<5[ Low 4[
+   13Platform<8[
+       1OrientToX<3[ 0 8[
+       1OrientToY<3[ 0 8[
+       1OrientAwayX<3[ 0 8[
+       1OrientAwayY<3[ 0 8[
+       1OrientToBearing<3[ 0 7[
+      1OrientMode<9[ Bearing 4[
+   4[
+   21Weapon<7[
+      1WpnSAType<9[ AgentKE 7[
+      1WpnName<2[  7[
+      1WpnType<8[ Simple 7[
+      1WpnAgtClass<9[ Primary 7[
+      1WpnLockDefState<4[ No 7[
+      1WpnLOF<5[ Yes 7[
+      1WpnOffsetX<3[ 0 7[
+      1WpnOffsetY<3[ 0 7[
+      1WpnReloadAmmoTime<4[ -1 7[
+      1WpnAmmo<6[ 1000 4[
+   4[
+   13Sensor<7[
+      1SensName<15[ MANA 3 Sensor 7[
+      1SensType<8[ Simple 7[
+      1SensClass<3[ A 7[
+      1SensLockDefState<3[ No7[
+      1SensOffsetX<2[ 07[
+      1SensOffsetY<2[ 04[
+   5[
+
+   251state<7[
+      1StateName<15[ Default State 7[
+      1SquadAlleg<3[ 1 7[
+      1DefIcon<3[ 2 7[
+      15Trigger<10[
+         1fallback_to<15[ Default State 10[
+         1duration<3[ 0 10[
+         1CanInterrupt<5[ Yes 10[
+         1Interrupter<4[ No 10[
+         1OnceOnly<4[ No 10[
+         1RandomDuration<4[ No 10[
+         1HighestPriority<4[ No 7[
+      7[
+      1Threat<3[ 1 7[
+      1AgtClass<3[ 0 7[
+      1ReleaseFromParent<4[ Yes7[
+      1ReleaseChildren<4[ Yes7[
+      1ActivateConCombat<4[ No 7[
+      1ActivateConCluster<4[ No 7[
+      1ActivateConAdvance<4[ No 7[
+      1FormationShape<6[ None 7[
+      1OnlyRespToMovAgt<4[ No 7[
+      1Stealth<4[ 80 7[
+      1StealthB<3[ 0 7[
+      1FuelRate<3[ 0 7[
+      15PlatformState<10[
+         1SlewRate<3[ 0 10[
+         1Height<3[ 0 10[
+         1ScanMode<11[ No Change 10[
+         1OrientUsingAgentSA<4[ No 10[
+         1OrientUsingSquadSA<4[ No 10[
+         1OrientUsingInorgSA<4[ No 10[
+         1OrientTowardsShooter<4[ No 7[
+      7[
+      51WeaponState<13[ 
+           1WpnEnabled<5[ Yes 12[
+           1WpnInterpSSKP<4[ No 12[
+           1WpnTargetClosest<4[ No 12[
+           1WpnNumTargets<5[ 100 12[
+           1WpnShotRadius<3[ 0 12[
+           1WpnMinRange<3[ 0 12[
+           1WpnMaxRange<3[ 0 12[
+           1WpnMultiHitControlRange<4[ -1 12[
+           1WpnPenetration<3[ 0 12[
+           1WpnMinThreat<3[ 0 12[
+           1WpnMaxThreat<3[ 3 12[
+           1WpnMaxAge<5[ 100 12[
+           1WpnApWidth<5[ 360 12[
+           1WpnApCnr<3[ 0 12[
+           1WpnTargetUnknownsWait<4[ -1 12[
+           1WpnProtectSelf<4[ No 12[
+           1WpnProtectSqFr<4[ No 12[
+           1WpnProtectOthFr<4[ No 12[
+           1WpnProtectNeutrals<4[ No 12[
+           1WpnProtectUnknowns<4[ No 12[
+           1WpnProtectUsingOrgSA<4[ No 12[
+           1WpnProtectUsingInorgSA<4[ No 12[
+           5sskpTable<14[
+             5sskpTablePoint<16[
+               1sskpTableRange<4[ 1  16[
+               1sskpTableProb<4[530014[
+             14[
+             5sskpTablePoint<16[
+               1sskpTableRange<5[ 20  16[
+               1sskpTableProb<4[220014[
+             12[
+           12[
+           1AgtClassTable<12[
+           12[
+           1nonTargetTable<12[
+           7[
+      8[ 
+      17SensorState<13[ 
+           1SensStEnabled<5[ Yes 12[
+           1SensStClass<2[2912[
+           1SensStDetect<2[2912[
+           1SensStApWidth<3[ 0 12[
+           1SensStApCnr<3[ 0 12[
+           1SensStSync<4[ No 12[
+           3classTable<14[
+             5classTablePoint<16[
+               1classTableRange<4[ 0  16[
+               1classTableProb<4[ 0  14[
+             12[
+           12[
+           3detectTable<14[
+             5detectTablePoint<16[
+               1detectTableRange<4[ 0  16[
+               1detectTableProb<4[ 0  14[
+             12[
+           7[
+      8[ 
+      2weight<1WgtName<15[ Alive Enemy   1WgtVal<3[-647[
+      2weight<1WgtName<17[ Alive Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<19[ Injured Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Alive Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Next Waypoint   1WgtVal<2[917[
+      2weight<1WgtName<22[ Alternate Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Easy Terrain   1WgtVal<7[   0   7[
+      2weight<1WgtName<9[ Cover   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ Concealment   1WgtVal<7[   0   7[
+      2weight<1WgtName<10[ Centre   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Org Threat 1 (Low)   1WgtVal<3[-647[
+      2weight<1WgtName<25[ Org Threat 2 (Medium)   1WgtVal<3[-647[
+      2weight<1WgtName<23[ Org Threat 3 (High)   1WgtVal<3[-647[
+      2weight<1WgtName<21[ Org Squad Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ Org Other Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ Inorg Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<27[ Inorg Threat 2 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<25[ Inorg Threat 3 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Inorg Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ En Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ En Threat 1 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ En Threat 1 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<12[ En Ideal   1WgtVal<7[   0   7[
+      2weight<1WgtName<13[ Formation   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ AgtEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ OrgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ InorgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<14[ IntraSquad   1WgtVal<7[   0   7[
+      2range<1RangeName<16[ Sensor Range   1RangeVal<8[   25   7[
+      2range<1RangeName<19[ Detection Range   1RangeVal<8[   25   7[
+      2range<1RangeName<18[ Movement Speed   1RangeVal<2[817[
+      2range<1RangeName<32[ No. of Hits Required to Kill   1RangeVal<7[   1   7[
+      2range<1RangeName<27[ Min Distance to Enemies   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Min Distance to Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<28[ Min Distance to Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Min Distance to Next Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Alternate Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Cluster Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Combat Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Advance Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<16[ Refuel Range   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Probability of Refuel Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<32[ Probability of Refuel Friend   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Probability of Refuel Neutral   1RangeVal<7[   0   7[
+      2range<1RangeName<20[ Armour Thickness   1RangeVal<7[   0   7[
+      2range<1RangeName<19[ Waypoint Radius   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Max Distance to Enemies   1RangeVal<11[   10000   7[
+      2range<1RangeName<27[ Max Distance to Friends   1RangeVal<11[   10000   7[
+      2range<1RangeName<28[ Max Distance to Neutrals   1RangeVal<11[   10000   7[
+      2range<1RangeName<33[ Max Distance to Next Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<38[ Max Distance to Alternate Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Squad Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Other Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Squad Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Other Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<37[ Min Distance to Inorganic Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<37[ Max Distance to Inorganic Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Min Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Max Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Ideal Enemy Class   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance for Combat Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Cluster Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Advance Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Orientation To Enemy Angle (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Min Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Max Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<26[ Formation Square Width   1RangeVal<7[   2   7[
+      2range<1RangeName<29[ Formation Circle Diameter   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Min Distance Intrasquad   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Max Distance Intrasquad   1RangeVal<7[   0   4[
+   5[
+
+   251state<7[
+      1StateName<15[ Contact State 7[
+      1SquadAlleg<3[ 1 7[
+      1DefIcon<3[ 2 7[
+      15Trigger<10[
+         1fallback_to<15[ Default State 10[
+         1duration<4[ 10 10[
+         1CanInterrupt<5[ Yes 10[
+         1Interrupter<4[ No 10[
+         1OnceOnly<4[ No 10[
+         1RandomDuration<4[ No 10[
+         1HighestPriority<4[ No 7[
+      7[
+      1Threat<3[ 1 7[
+      1AgtClass<3[ 0 7[
+      1ReleaseFromParent<4[ Yes7[
+      1ReleaseChildren<4[ Yes7[
+      1ActivateConCombat<4[ No 7[
+      1ActivateConCluster<4[ No 7[
+      1ActivateConAdvance<4[ No 7[
+      1FormationShape<6[ None 7[
+      1OnlyRespToMovAgt<4[ No 7[
+      1Stealth<4[ 80 7[
+      1StealthB<3[ 0 7[
+      1FuelRate<3[ 0 7[
+      15PlatformState<10[
+         1SlewRate<3[ 0 10[
+         1Height<3[ 0 10[
+         1ScanMode<11[ No Change 10[
+         1OrientUsingAgentSA<4[ No 10[
+         1OrientUsingSquadSA<4[ No 10[
+         1OrientUsingInorgSA<4[ No 10[
+         1OrientTowardsShooter<4[ No 7[
+      7[
+      51WeaponState<13[ 
+           1WpnEnabled<5[ Yes 12[
+           1WpnInterpSSKP<4[ No 12[
+           1WpnTargetClosest<4[ No 12[
+           1WpnNumTargets<5[ 100 12[
+           1WpnShotRadius<3[ 0 12[
+           1WpnMinRange<3[ 0 12[
+           1WpnMaxRange<3[ 0 12[
+           1WpnMultiHitControlRange<4[ -1 12[
+           1WpnPenetration<3[ 0 12[
+           1WpnMinThreat<3[ 0 12[
+           1WpnMaxThreat<3[ 3 12[
+           1WpnMaxAge<5[ 100 12[
+           1WpnApWidth<5[ 360 12[
+           1WpnApCnr<3[ 0 12[
+           1WpnTargetUnknownsWait<4[ -1 12[
+           1WpnProtectSelf<4[ No 12[
+           1WpnProtectSqFr<4[ No 12[
+           1WpnProtectOthFr<4[ No 12[
+           1WpnProtectNeutrals<4[ No 12[
+           1WpnProtectUnknowns<4[ No 12[
+           1WpnProtectUsingOrgSA<4[ No 12[
+           1WpnProtectUsingInorgSA<4[ No 12[
+           5sskpTable<14[
+             5sskpTablePoint<16[
+               1sskpTableRange<4[ 1  16[
+               1sskpTableProb<7[ 1500  14[
+             14[
+             5sskpTablePoint<16[
+               1sskpTableRange<5[ 20  16[
+               1sskpTableProb<7[ 1500  14[
+             12[
+           12[
+           1AgtClassTable<12[
+           12[
+           1nonTargetTable<12[
+           7[
+      8[ 
+      17SensorState<13[ 
+           1SensStEnabled<5[ Yes 12[
+           1SensStClass<4[ 25 12[
+           1SensStDetect<4[ 25 12[
+           1SensStApWidth<3[ 0 12[
+           1SensStApCnr<3[ 0 12[
+           1SensStSync<4[ No 12[
+           3classTable<14[
+             5classTablePoint<16[
+               1classTableRange<4[ 0  16[
+               1classTableProb<4[ 0  14[
+             12[
+           12[
+           3detectTable<14[
+             5detectTablePoint<16[
+               1detectTableRange<4[ 0  16[
+               1detectTableProb<4[ 0  14[
+             12[
+           7[
+      8[ 
+      2weight<1WgtName<15[ Alive Enemy   1WgtVal<10[   -100   7[
+      2weight<1WgtName<17[ Alive Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<19[ Injured Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Alive Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Next Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Alternate Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Easy Terrain   1WgtVal<7[   0   7[
+      2weight<1WgtName<9[ Cover   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ Concealment   1WgtVal<7[   0   7[
+      2weight<1WgtName<10[ Centre   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Org Threat 1 (Low)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<25[ Org Threat 2 (Medium)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<23[ Org Threat 3 (High)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<21[ Org Squad Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ Org Other Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ Inorg Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<27[ Inorg Threat 2 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<25[ Inorg Threat 3 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Inorg Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ En Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ En Threat 1 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ En Threat 1 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<12[ En Ideal   1WgtVal<7[   0   7[
+      2weight<1WgtName<13[ Formation   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ AgtEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ OrgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ InorgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<14[ IntraSquad   1WgtVal<7[   0   7[
+      2range<1RangeName<16[ Sensor Range   1RangeVal<8[   25   7[
+      2range<1RangeName<19[ Detection Range   1RangeVal<8[   25   7[
+      2range<1RangeName<18[ Movement Speed   1RangeVal<9[   100   7[
+      2range<1RangeName<32[ No. of Hits Required to Kill   1RangeVal<7[   1   7[
+      2range<1RangeName<27[ Min Distance to Enemies   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Min Distance to Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<28[ Min Distance to Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Min Distance to Next Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Alternate Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Cluster Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Combat Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Advance Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<16[ Refuel Range   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Probability of Refuel Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<32[ Probability of Refuel Friend   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Probability of Refuel Neutral   1RangeVal<7[   0   7[
+      2range<1RangeName<20[ Armour Thickness   1RangeVal<7[   0   7[
+      2range<1RangeName<19[ Waypoint Radius   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Max Distance to Enemies   1RangeVal<11[   10000   7[
+      2range<1RangeName<27[ Max Distance to Friends   1RangeVal<11[   10000   7[
+      2range<1RangeName<28[ Max Distance to Neutrals   1RangeVal<11[   10000   7[
+      2range<1RangeName<33[ Max Distance to Next Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<38[ Max Distance to Alternate Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Squad Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Other Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Squad Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Other Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<37[ Min Distance to Inorganic Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<37[ Max Distance to Inorganic Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Min Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Max Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Ideal Enemy Class   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance for Combat Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Cluster Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Advance Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Orientation To Enemy Angle (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Min Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Max Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<26[ Formation Square Width   1RangeVal<7[   2   7[
+      2range<1RangeName<29[ Formation Circle Diameter   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Min Distance Intrasquad   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Max Distance Intrasquad   1RangeVal<7[   0   4[
+   1[
+2[
+
+83Squad<4[
+   1SquadType<9[ Trooper 4[
+   1SquadActive<5[ Yes 4[
+   1SquadCommsEnable<5[ Yes 4[
+   1index<3[ 2 4[
+   1ParentSqd<3[ 0 4[
+   1SquadName<5[ Red 4[
+   1NumAgents<2[684[
+   1SquadOnly<4[ No 4[
+   1Use_Momentum<5[ Yes 4[
+   1Use_Diag<4[ No 4[
+   1MultiOccupy<4[ No 4[
+   1AutoRflAgt<4[ No 4[
+   1Use_Going<5[ Yes 4[
+   1Move_Together<4[ No 4[
+   1MoveSelectType<11[ Precision 4[
+   7Homes<7[
+      1HomeNumberOf<3[ 1 7[
+      1HomeDistribution<7[ Turns 7[
+      13HomePos<10[
+         1Home_x_coord<5[ 118 10[
+         1Home_y_coord<5[ 110 10[
+         1HomeWid<5[ 176 10[
+         1HomeHgt<5[ 176 10[
+         1HomeExclDist<3[ 0 10[
+         9Waypoints<13[
+            1numberOf<3[ 1 13[
+            1loop<4[ No 13[
+            9waypoint<16[
+               1x_coord<4[ 16 16[
+               1y_coord<4[ 90 16[
+               1Wid<3[ 0 16[
+               1Hgt<3[ 0 13[
+            13[
+            1HaveAltGoal<4[ No 10[
+         7[
+      4[
+   4[
+   1FlagIcon<3[ 2 4[
+   1Comms<4[
+   4[
+   1SALockoutTime<3[ 0 4[
+   1OrgThreatRate<4[ 30 4[
+   1InorgThreatRate<4[ 30 4[
+   1OrgFuseRad<3[ 0 4[
+   1OrgFuseTime<3[ 0 4[
+   1InorgFuseRad<3[ 0 4[
+   1InorgFuseTime<3[ 0 4[
+   1ForceOrgUpdateByCtID<4[ No 4[
+   1ForceInorgUpdateByCtID<4[ No 4[
+   1ResOrgUnknown<4[ No 4[
+   1ResInorgUnknown<4[ No 4[
+   1PathWidth<3[ 0 4[
+   1TurretBearing<3[ 0 4[
+   1SquadOrientation<3[ 0 4[
+   1CommsDelay<3[ 0 4[
+   1Sound<3[ 4 4[
+   1Precision<5[ 200 4[
+   1FuelTank<4[ 20 4[
+   1CommsQuality<5[ Low 4[
+   13Platform<8[
+       1OrientToX<3[ 0 8[
+       1OrientToY<3[ 0 8[
+       1OrientAwayX<3[ 0 8[
+       1OrientAwayY<3[ 0 8[
+       1OrientToBearing<3[ 0 7[
+      1OrientMode<9[ Bearing 4[
+   4[
+   21Weapon<7[
+      1WpnSAType<9[ AgentKE 7[
+      1WpnName<2[  7[
+      1WpnType<8[ Simple 7[
+      1WpnAgtClass<9[ Primary 7[
+      1WpnLockDefState<4[ No 7[
+      1WpnLOF<5[ Yes 7[
+      1WpnOffsetX<3[ 0 7[
+      1WpnOffsetY<3[ 0 7[
+      1WpnReloadAmmoTime<4[ -1 7[
+      1WpnAmmo<6[ 1000 4[
+   4[
+   13Sensor<7[
+      1SensName<15[ MANA 3 Sensor 7[
+      1SensType<8[ Simple 7[
+      1SensClass<3[ A 7[
+      1SensLockDefState<3[ No7[
+      1SensOffsetX<2[ 07[
+      1SensOffsetY<2[ 04[
+   5[
+
+   251state<7[
+      1StateName<15[ Default State 7[
+      1SquadAlleg<3[ 2 7[
+      1DefIcon<4[ 26 7[
+      15Trigger<10[
+         1fallback_to<15[ Default State 10[
+         1duration<3[ 0 10[
+         1CanInterrupt<5[ Yes 10[
+         1Interrupter<4[ No 10[
+         1OnceOnly<4[ No 10[
+         1RandomDuration<4[ No 10[
+         1HighestPriority<4[ No 7[
+      7[
+      1Threat<3[ 3 7[
+      1AgtClass<3[ 0 7[
+      1ReleaseFromParent<4[ Yes7[
+      1ReleaseChildren<4[ Yes7[
+      1ActivateConCombat<4[ No 7[
+      1ActivateConCluster<4[ No 7[
+      1ActivateConAdvance<4[ No 7[
+      1FormationShape<6[ None 7[
+      1OnlyRespToMovAgt<4[ No 7[
+      1Stealth<3[ 0 7[
+      1StealthB<3[ 0 7[
+      1FuelRate<3[ 0 7[
+      15PlatformState<10[
+         1SlewRate<3[ 0 10[
+         1Height<3[ 0 10[
+         1ScanMode<11[ No Change 10[
+         1OrientUsingAgentSA<4[ No 10[
+         1OrientUsingSquadSA<4[ No 10[
+         1OrientUsingInorgSA<4[ No 10[
+         1OrientTowardsShooter<4[ No 7[
+      7[
+      51WeaponState<13[ 
+           1WpnEnabled<5[ Yes 12[
+           1WpnInterpSSKP<4[ No 12[
+           1WpnTargetClosest<4[ No 12[
+           1WpnNumTargets<5[ 100 12[
+           1WpnShotRadius<3[ 0 12[
+           1WpnMinRange<3[ 0 12[
+           1WpnMaxRange<3[ 0 12[
+           1WpnMultiHitControlRange<4[ -1 12[
+           1WpnPenetration<3[ 0 12[
+           1WpnMinThreat<3[ 0 12[
+           1WpnMaxThreat<3[ 3 12[
+           1WpnMaxAge<5[ 100 12[
+           1WpnApWidth<5[ 360 12[
+           1WpnApCnr<3[ 0 12[
+           1WpnTargetUnknownsWait<4[ -1 12[
+           1WpnProtectSelf<4[ No 12[
+           1WpnProtectSqFr<4[ No 12[
+           1WpnProtectOthFr<4[ No 12[
+           1WpnProtectNeutrals<4[ No 12[
+           1WpnProtectUnknowns<4[ No 12[
+           1WpnProtectUsingOrgSA<4[ No 12[
+           1WpnProtectUsingInorgSA<4[ No 12[
+           5sskpTable<14[
+             5sskpTablePoint<16[
+               1sskpTableRange<4[ 1  16[
+               1sskpTableProb<3[80014[
+             14[
+             5sskpTablePoint<16[
+               1sskpTableRange<5[ 20  16[
+               1sskpTableProb<3[40014[
+             12[
+           12[
+           1AgtClassTable<12[
+           12[
+           1nonTargetTable<12[
+           7[
+      8[ 
+      17SensorState<13[ 
+           1SensStEnabled<5[ Yes 12[
+           1SensStClass<2[2312[
+           1SensStDetect<2[2312[
+           1SensStApWidth<3[ 0 12[
+           1SensStApCnr<3[ 0 12[
+           1SensStSync<4[ No 12[
+           3classTable<14[
+             5classTablePoint<16[
+               1classTableRange<4[ 0  16[
+               1classTableProb<4[ 0  14[
+             12[
+           12[
+           3detectTable<14[
+             5detectTablePoint<16[
+               1detectTableRange<4[ 0  16[
+               1detectTableProb<4[ 0  14[
+             12[
+           7[
+      8[ 
+      2weight<1WgtName<15[ Alive Enemy   1WgtVal<2[997[
+      2weight<1WgtName<17[ Alive Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<19[ Injured Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Alive Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Next Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Alternate Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Easy Terrain   1WgtVal<7[   0   7[
+      2weight<1WgtName<9[ Cover   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ Concealment   1WgtVal<7[   0   7[
+      2weight<1WgtName<10[ Centre   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Org Threat 1 (Low)   1WgtVal<2[997[
+      2weight<1WgtName<25[ Org Threat 2 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<23[ Org Threat 3 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ Org Squad Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ Org Other Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ Inorg Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<27[ Inorg Threat 2 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<25[ Inorg Threat 3 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Inorg Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ En Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ En Threat 1 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ En Threat 1 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<12[ En Ideal   1WgtVal<7[   0   7[
+      2weight<1WgtName<13[ Formation   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ AgtEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ OrgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ InorgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<14[ IntraSquad   1WgtVal<7[   0   7[
+      2range<1RangeName<16[ Sensor Range   1RangeVal<8[   25   7[
+      2range<1RangeName<19[ Detection Range   1RangeVal<8[   25   7[
+      2range<1RangeName<18[ Movement Speed   1RangeVal<2[567[
+      2range<1RangeName<32[ No. of Hits Required to Kill   1RangeVal<7[   1   7[
+      2range<1RangeName<27[ Min Distance to Enemies   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Min Distance to Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<28[ Min Distance to Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Min Distance to Next Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Alternate Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Cluster Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Combat Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Advance Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<16[ Refuel Range   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Probability of Refuel Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<32[ Probability of Refuel Friend   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Probability of Refuel Neutral   1RangeVal<7[   0   7[
+      2range<1RangeName<20[ Armour Thickness   1RangeVal<7[   0   7[
+      2range<1RangeName<19[ Waypoint Radius   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Max Distance to Enemies   1RangeVal<11[   10000   7[
+      2range<1RangeName<27[ Max Distance to Friends   1RangeVal<11[   10000   7[
+      2range<1RangeName<28[ Max Distance to Neutrals   1RangeVal<11[   10000   7[
+      2range<1RangeName<33[ Max Distance to Next Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<38[ Max Distance to Alternate Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Squad Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Other Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 1   1RangeVal<9[   150   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 2   1RangeVal<9[   150   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 3   1RangeVal<9[   150   7[
+      2range<1RangeName<41[ Max Distance to Organic Squad Friends   1RangeVal<9[   150   7[
+      2range<1RangeName<41[ Max Distance to Organic Other Friends   1RangeVal<9[   150   7[
+      2range<1RangeName<36[ Max Distance to Organic Neutrals   1RangeVal<9[   150   7[
+      2range<1RangeName<36[ Max Distance to Organic Unknowns   1RangeVal<9[   150   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<37[ Min Distance to Inorganic Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 1   1RangeVal<9[   150   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 2   1RangeVal<9[   150   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 3   1RangeVal<9[   150   7[
+      2range<1RangeName<37[ Max Distance to Inorganic Friends   1RangeVal<9[   150   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Neutrals   1RangeVal<9[   150   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Unknowns   1RangeVal<9[   150   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Min Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Max Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Ideal Enemy Class   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance for Combat Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Cluster Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Advance Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Orientation To Enemy Angle (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Min Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Max Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<26[ Formation Square Width   1RangeVal<7[   2   7[
+      2range<1RangeName<29[ Formation Circle Diameter   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Min Distance Intrasquad   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Max Distance Intrasquad   1RangeVal<7[   0   4[
+   1[
+2[
+
+83Squad<4[
+   1SquadType<9[ Trooper 4[
+   1SquadActive<5[ Yes 4[
+   1SquadCommsEnable<5[ Yes 4[
+   1index<3[ 3 4[
+   1ParentSqd<3[ 0 4[
+   1SquadName<6[ Blue 4[
+   1NumAgents<1[14[
+   1SquadOnly<5[ Yes 4[
+   1Use_Momentum<5[ Yes 4[
+   1Use_Diag<4[ No 4[
+   1MultiOccupy<4[ No 4[
+   1AutoRflAgt<4[ No 4[
+   1Use_Going<5[ Yes 4[
+   1Move_Together<4[ No 4[
+   1MoveSelectType<11[ Precision 4[
+   7Homes<7[
+      1HomeNumberOf<3[ 1 7[
+      1HomeDistribution<14[ Proportional 7[
+      13HomePos<10[
+         1Home_x_coord<3[ 5 10[
+         1Home_y_coord<3[ 5 10[
+         1HomeWid<4[ 26 10[
+         1HomeHgt<4[ 26 10[
+         1HomeExclDist<3[ 0 10[
+         9Waypoints<13[
+            1numberOf<3[ 1 13[
+            1loop<5[ Yes 13[
+            9waypoint<16[
+               1x_coord<5[ 192 16[
+               1y_coord<5[ 192 16[
+               1Wid<3[ 0 16[
+               1Hgt<3[ 0 13[
+            13[
+            1HaveAltGoal<4[ No 10[
+         7[
+      4[
+   4[
+   1FlagIcon<3[ 2 4[
+   1Comms<4[
+   4[
+   1SALockoutTime<3[ 0 4[
+   1OrgThreatRate<5[ 100 4[
+   1InorgThreatRate<5[ 100 4[
+   1OrgFuseRad<3[ 0 4[
+   1OrgFuseTime<3[ 0 4[
+   1InorgFuseRad<3[ 0 4[
+   1InorgFuseTime<3[ 0 4[
+   1ForceOrgUpdateByCtID<4[ No 4[
+   1ForceInorgUpdateByCtID<4[ No 4[
+   1ResOrgUnknown<4[ No 4[
+   1ResInorgUnknown<4[ No 4[
+   1PathWidth<3[ 0 4[
+   1TurretBearing<3[ 0 4[
+   1SquadOrientation<3[ 0 4[
+   1CommsDelay<3[ 0 4[
+   1Sound<3[ 4 4[
+   1Precision<5[ 150 4[
+   1FuelTank<4[ 20 4[
+   1CommsQuality<5[ Low 4[
+   13Platform<8[
+       1OrientToX<3[ 0 8[
+       1OrientToY<3[ 0 8[
+       1OrientAwayX<3[ 0 8[
+       1OrientAwayY<3[ 0 8[
+       1OrientToBearing<3[ 0 7[
+      1OrientMode<9[ Bearing 4[
+   4[
+   21Weapon<7[
+      1WpnSAType<13[ InorganicHE 7[
+      1WpnName<2[  7[
+      1WpnType<8[ Simple 7[
+      1WpnAgtClass<9[ Primary 7[
+      1WpnLockDefState<4[ No 7[
+      1WpnLOF<5[ Yes 7[
+      1WpnOffsetX<3[ 0 7[
+      1WpnOffsetY<3[ 0 7[
+      1WpnReloadAmmoTime<4[ -1 7[
+      1WpnAmmo<5[ 100 4[
+   4[
+   13Sensor<7[
+      1SensName<15[ MANA 3 Sensor 7[
+      1SensType<8[ Simple 7[
+      1SensClass<3[ A 7[
+      1SensLockDefState<3[ No7[
+      1SensOffsetX<2[ 07[
+      1SensOffsetY<2[ 04[
+   5[
+
+   251state<7[
+      1StateName<15[ Default State 7[
+      1SquadAlleg<3[ 1 7[
+      1DefIcon<3[ 2 7[
+      15Trigger<10[
+         1fallback_to<15[ Default State 10[
+         1duration<3[ 0 10[
+         1CanInterrupt<5[ Yes 10[
+         1Interrupter<4[ No 10[
+         1OnceOnly<4[ No 10[
+         1RandomDuration<4[ No 10[
+         1HighestPriority<4[ No 7[
+      7[
+      1Threat<3[ 1 7[
+      1AgtClass<3[ 0 7[
+      1ReleaseFromParent<4[ Yes7[
+      1ReleaseChildren<4[ Yes7[
+      1ActivateConCombat<4[ No 7[
+      1ActivateConCluster<4[ No 7[
+      1ActivateConAdvance<4[ No 7[
+      1FormationShape<6[ None 7[
+      1OnlyRespToMovAgt<4[ No 7[
+      1Stealth<4[ 80 7[
+      1StealthB<3[ 0 7[
+      1FuelRate<3[ 0 7[
+      15PlatformState<10[
+         1SlewRate<3[ 0 10[
+         1Height<3[ 0 10[
+         1ScanMode<11[ No Change 10[
+         1OrientUsingAgentSA<4[ No 10[
+         1OrientUsingSquadSA<4[ No 10[
+         1OrientUsingInorgSA<4[ No 10[
+         1OrientTowardsShooter<4[ No 7[
+      7[
+      51WeaponState<13[ 
+           1WpnEnabled<5[ Yes 12[
+           1WpnInterpSSKP<4[ No 12[
+           1WpnTargetClosest<4[ No 12[
+           1WpnNumTargets<5[ 100 12[
+           1WpnShotRadius<4[ 10 12[
+           1WpnMinRange<3[ 0 12[
+           1WpnMaxRange<5[ 199 12[
+           1WpnMultiHitControlRange<4[ -1 12[
+           1WpnPenetration<3[ 1 12[
+           1WpnMinThreat<3[ 4 12[
+           1WpnMaxThreat<6[ 1000 12[
+           1WpnMaxAge<6[ 1000 12[
+           1WpnApWidth<5[ 360 12[
+           1WpnApCnr<3[ 0 12[
+           1WpnTargetUnknownsWait<4[ -1 12[
+           1WpnProtectSelf<5[ Yes 12[
+           1WpnProtectSqFr<4[ No 12[
+           1WpnProtectOthFr<4[ No 12[
+           1WpnProtectNeutrals<4[ No 12[
+           1WpnProtectUnknowns<4[ No 12[
+           1WpnProtectUsingOrgSA<5[ Yes 12[
+           1WpnProtectUsingInorgSA<4[ No 12[
+           3sskpTable<14[
+             5sskpTablePoint<16[
+               1sskpTableRange<5[ 10  16[
+               1sskpTableProb<4[590014[
+             12[
+           12[
+           1AgtClassTable<12[
+           12[
+           1nonTargetTable<12[
+           7[
+      8[ 
+      17SensorState<13[ 
+           1SensStEnabled<5[ Yes 12[
+           1SensStClass<4[ 25 12[
+           1SensStDetect<4[ 25 12[
+           1SensStApWidth<3[ 0 12[
+           1SensStApCnr<3[ 0 12[
+           1SensStSync<4[ No 12[
+           3classTable<14[
+             5classTablePoint<16[
+               1classTableRange<4[ 0  16[
+               1classTableProb<4[ 0  14[
+             12[
+           12[
+           3detectTable<14[
+             5detectTablePoint<16[
+               1detectTableRange<4[ 0  16[
+               1detectTableProb<4[ 0  14[
+             12[
+           7[
+      8[ 
+      2weight<1WgtName<15[ Alive Enemy   1WgtVal<10[   -100   7[
+      2weight<1WgtName<17[ Alive Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<19[ Injured Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Alive Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Next Waypoint   1WgtVal<8[   50   7[
+      2weight<1WgtName<22[ Alternate Waypoint   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Easy Terrain   1WgtVal<7[   0   7[
+      2weight<1WgtName<9[ Cover   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ Concealment   1WgtVal<7[   0   7[
+      2weight<1WgtName<10[ Centre   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ Org Threat 1 (Low)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<25[ Org Threat 2 (Medium)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<23[ Org Threat 3 (High)   1WgtVal<10[   -100   7[
+      2weight<1WgtName<21[ Org Squad Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ Org Other Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<16[ Org Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ Inorg Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<27[ Inorg Threat 2 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<25[ Inorg Threat 3 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ Inorg Friends   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Neutrals   1WgtVal<7[   0   7[
+      2weight<1WgtName<18[ Inorg Unknowns   1WgtVal<7[   0   7[
+      2weight<1WgtName<21[ En Threat 1 (Low)   1WgtVal<7[   0   7[
+      2weight<1WgtName<24[ En Threat 1 (Medium)   1WgtVal<7[   0   7[
+      2weight<1WgtName<22[ En Threat 1 (High)   1WgtVal<7[   0   7[
+      2weight<1WgtName<12[ En Ideal   1WgtVal<7[   0   7[
+      2weight<1WgtName<13[ Formation   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ AgtEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<15[ OrgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<17[ InorgEnOrient   1WgtVal<7[   0   7[
+      2weight<1WgtName<14[ IntraSquad   1WgtVal<7[   0   7[
+      2range<1RangeName<16[ Sensor Range   1RangeVal<8[   25   7[
+      2range<1RangeName<19[ Detection Range   1RangeVal<8[   25   7[
+      2range<1RangeName<18[ Movement Speed   1RangeVal<7[   0   7[
+      2range<1RangeName<32[ No. of Hits Required to Kill   1RangeVal<7[   1   7[
+      2range<1RangeName<27[ Min Distance to Enemies   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Min Distance to Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<28[ Min Distance to Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Min Distance to Next Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Alternate Waypoint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Cluster Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Combat Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<22[ Advance Constraint   1RangeVal<7[   0   7[
+      2range<1RangeName<16[ Refuel Range   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Probability of Refuel Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<32[ Probability of Refuel Friend   1RangeVal<7[   0   7[
+      2range<1RangeName<33[ Probability of Refuel Neutral   1RangeVal<7[   0   7[
+      2range<1RangeName<20[ Armour Thickness   1RangeVal<7[   0   7[
+      2range<1RangeName<19[ Waypoint Radius   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Max Distance to Enemies   1RangeVal<11[   10000   7[
+      2range<1RangeName<27[ Max Distance to Friends   1RangeVal<11[   10000   7[
+      2range<1RangeName<28[ Max Distance to Neutrals   1RangeVal<11[   10000   7[
+      2range<1RangeName<33[ Max Distance to Next Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<38[ Max Distance to Alternate Waypoint   1RangeVal<11[   10000   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Squad Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Min Distance to Organic Other Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Min Distance to Organic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Squad Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<41[ Max Distance to Organic Other Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<36[ Max Distance to Organic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<37[ Min Distance to Inorganic Friends   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Neutrals   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Min Distance to Inorganic Unknowns   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 1   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 2   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Threat 3   1RangeVal<8[   50   7[
+      2range<1RangeName<37[ Max Distance to Inorganic Friends   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Neutrals   1RangeVal<8[   50   7[
+      2range<1RangeName<38[ Max Distance to Inorganic Unknowns   1RangeVal<8[   50   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Min Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Min Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 1   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 2   1RangeVal<7[   0   7[
+      2range<1RangeName<34[ Max Distance to Enemy Threat 3   1RangeVal<7[   0   7[
+      2range<1RangeName<31[ Max Distance to Ideal Enemy   1RangeVal<7[   0   7[
+      2range<1RangeName<21[ Ideal Enemy Class   1RangeVal<7[   0   7[
+      2range<1RangeName<38[ Max Distance for Combat Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Cluster Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Max Distance for Advance Constraint   1RangeVal<11[   10000   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<39[ Orientation To Enemy Angle (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<41[ Orientation To Enemy Angle (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Min Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Min Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Agt SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<42[ Max Distance En. Angle Orient (Sqd SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<44[ Max Distance En. Angle Orient (Inorg SA)   1RangeVal<7[   0   7[
+      2range<1RangeName<26[ Formation Square Width   1RangeVal<7[   2   7[
+      2range<1RangeName<29[ Formation Circle Diameter   1RangeVal<7[   2   7[
+      2range<1RangeName<27[ Min Distance Intrasquad   1RangeVal<7[   0   7[
+      2range<1RangeName<27[ Max Distance Intrasquad   1RangeVal<7[   0   4[
+   1[
+3[
+
+
+9Messaging<4[
+   1MessagingActive<4[ No 4[
+   1LinkAvailability<3[ 0 4[
+   1DrawMessages<4[ No 4[
+   1LinePersistence<3[ 0 1[
+2[
+
+33QualnetLink<4[
+   1QualnetLinkActive<4[ No 4[
+   1PortNumber<6[ 9100 4[
+   1QScenarioName<2[  4[
+   1QScenarioLocation<2[  4[
+   1SquadRadios<4[ No 4[
+   1AgentRadios<4[ No 4[
+   1Cartesian<4[ No 4[
+   1Geodetic<4[ No 4[
+   1RunRemotely<4[ No 4[
+   1RunLocally<4[ No 4[
+   1LaunchDelay<3[ 5 4[
+   1CloseShell<4[ No 4[
+   1WriteNodesFile<5[ Yes 4[
+   1UpdateInterval<3[ 1 4[
+   1PacketSize<4[ 24 4[
+   1RenameOutput<5[ Yes 1[
+2[
+
+11NetMgr<4[
+   1NetMgrEnabled<4[ No 4[
+   1AllowPrioritization<4[ No 4[
+   1Heuristic<5[ 0.1 4[
+   1Allocation<6[ 0.75 4[
+   1DecayRate<3[ 5 1[
+2[
+
+1DynamicReliability<4[ No 2[
+

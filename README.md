@@ -6,37 +6,59 @@ The Transaction Serial Format (TSF) and the Transaction Array Model (TAM) provid
 
 ## C Code Description and Build
 
-The performance measurements for TSF were all done with C programs, because the benchmark library, lib_expat, was written in C.  The C code is written using an idiomatic C which follows object-oriented techniques, in effect object-oriented C.  It is strict ANSI C and does not require a C++ compiler.  The author feels that OO techniques are easily adapted to C code and provide the same advantages as do OO languages.
+The performance measurements for TSF were all done with C programs, because the benchmark library, lib_expat, was written in C.  The C code is written using an idiomatic C which follows object-oriented techniques, in effect object-oriented C.  It is strict ANSI C and does not require a C++ compiler.  I feel that OO techniques are easily adapted to C code and provide the same advantages as do OO languages.
 
-There are two versions of the code, an ASCII version the uses 8-bit characters internnaly, and a UTF-8 (UCS-4 internal) version.  Since lib_expat handled UTF-8, direct comparisons to lib_expat performance were done using the URTF-8 version.  The ASCII version performs better, and there are other advantages to using it, described in detail in the dissertation.  The primary difference is the use of the type `wchar\_t`, `typedef`'ed as `Char`, and its corresponding functions, instead of the basic character type `char`.  These could have been coded as a single set of conditionally compiled programs, but it was felt that they would be easier to read an understand without conditional compiles.
+There are two versions of the TSF code, an ASCII version the uses 8-bit characters internnaly, and a UTF-8 (UCS-4 internal) version.  Since lib_expat handled UTF-8, direct comparisons to lib_expat performance were done using the URTF-8 version.  The TSF ASCII version performs better, and there are other advantages to using it, described in detail in the dissertation.  The primary difference is the use of the type `wchar_t`, `typedef`'ed as `Char`, and its corresponding functions, instead of the basic character type `char`.  In a few sources cases, the version differences are minimal and handled with conditional compiles, but in some cases, I felt that they would be easier to read and understand without conditional compiles.  Any program whose name contains the characters `UC` is a wide character (UTF-8, UCS-4 internal) version of the corresponding 8-bit source code.
 
 ### Lib_expat Build ###
 
-Lib_expat can be acquired in either source form or pre-built.  For the TSF comparisons, lib_expat was built from source on a Mac Pro with OS X.  The same compiler was used to build the TSF code in order to have an apples-to-apples comparison.  Lib_expat build instructions are part of the lib_expat package and are omitted here.
+Lib_expat can be acquired in either source form or pre-built.  For the TSF comparisons, lib_expat was built from source on a Mac Pro with OS X.  The same compiler was used to build the TSF code in order to have an apples-to-apples comparison.  Lib_expat build instructions are part of the lib_expat package and are omitted here.  The following programs are the minimal amount of code required to use the lib_expat package as an XML deserializer (parser).  This is the code used to collect performance numbers for lib_expat.
+
+### Performance Comparision Source ###
+
+**Npx.c**, **NpxUC.c** - The primary comparison driver, which will use Expat to parse an XML file, or TSF code to parse a TSF file.  It uses a number of command line switches to determine what specific function will be done for any given run.  It will run using a single file as input or will search a directory for all the files with a specific suffix.
+
+**ExpCharacterData.c**, **ExpCharacterData.h** - A minimal character data object invoked when Expat encounters CDATA or PCDATA in the input
+
+**ExpElement.c**, **ExpElement.h** - A minimal XML element object invoked when Expat encounters an XML element in he input
+
+**expat-text.c** - Verify the operation of Expat and options used for the performance comparison.  This code is linked in the Npx.c test driver
+
+**Npx2XML.c** - Convert TSF files to XML files, used for lossless conversion verification.
+
+**NpxDeserial.c** - The serialization and deserialization conditionally compile either 8-bit or UCS-4 (`wchar\_t`) functions, and are linked in the test driver
 
 ### Common Functions ###
 
-The programs use three custom packages that contain low-level processing that is common to many C programs. These were written by the author many years ago for generic C programming.
+The TSF programs use three custom packages that contain low-level processing that is common to many C programs. I wrote these many years ago for generic C programming.
 
-**Memory.h** - These functions are an interface to the C memory allocation functions.  They provide an out-of-memory error handling capability based on `setjmp.h`, a debugging capability that tracks memory allocations to avoid memory leaks, and a fence around allocation blocks that can detect some writes that exceed the boundary of an allocated block of memory.
+**Memory.c**, **Memory.h** - These functions are an interface to the C memory allocation functions.  They provide an out-of-memory error handling capability based on `setjmp.h`, a debugging capability that tracks memory allocations to avoid memory leaks, and a fence around allocation blocks that can detect some writes that exceed the boundary of an allocated block of memory.
 
-**String.h** - These functions manage C-string assignments, concatenations, and substrings, and the memory allocations that are needed by these operations.  These functions depend upon `Memory.h`.
+**Sstring.c**, **Sstring.h** - These functions manage C-string assignments, concatenations, and substrings, and the memory allocations that are needed by these operations.  These functions depend upon `Memory.h`.
 
-**StringBufffer.h** - These functions provide string creation that does not require prior knowledge of the length of a string.  String buffers are chunks of string data that are linked together internally.  The functions provide an interface that hides the fact that the data is not stored contiguously. These functions depend upon `Memory.h`.
+**StringBufffer.c**, **StringBufffer.h** - These functions provide string creation that does not require prior knowledge of the length of a string.  String buffers are chunks of string data that are linked together internally.  The functions provide an interface that hides the fact that the data is not stored contiguously. These functions depend upon `Memory.h`.
 
-### UTF-8 Objects are all named with UC ###
+**UCStringBufffer.c**, **UCStringBufffer.h** - Wide character versions.
+
+### TSF Programs ###
+
+Some programs have wide character (UTF-8) and 8-bit versions.  In other cases, the changes between versions are minimal, and are handled by conditional compiles.
+
+**NpxRoot.h** - A header for common code ans definitions.
 
 **NpxUCElement.h** - Declaration of the method table for the NpxUCElement object.  This is the only "public" member of the NpxUCElement object.
 
 **NpxUCElement.c** - The `NpxElement.c` file is the implementation of the NpxElement object, and contains all the methods referenced in the method table.  It also declares the NpxElementI structure which is the "private" implementation of the properties of the NpxElement object.   The code uses an interface (Memory.h) to the C library dynamic memory management functions.
 
-### Serialization/Deserialization Code ###
+**NpxElement.c**, **NpxElement.h** - 8-bit version.
 
-**NpxDeserial.c** - The serialization and deserialization conditionally compile either 8-bit or UCS-4 (`wchar\_t`) functions.
+### Miscellaneous Programs ###
 
-### CMakelists File ###
+**utf8-1.c** - Display the compiler size of the character types.
 
-This file describes the C program build and can be used directly by any IDE that recognizes CMakelists.  It can also be converted to build files for other IDE's.
+### CMakelists ###
+
+The following commands comprise a CMakelists file which describes the C program build and can be used directly by any IDE that recognizes CMakelists.TheyIt can also be converted to build files for other IDE's.
 
 ```
 cmake_minimum_required(VERSION 3.12)

@@ -4,6 +4,7 @@
 
 * <a href="#intro">Introduction</a>
 * <a href="#ccode">C Code Description and Build</a>
+* <a href="#tfiles">Performance Test Files</a>
 * <a href="#jcode">Java Code</a>
 
 <a id="intro"></a>
@@ -104,5 +105,24 @@ target_link_libraries(npx libexpat.dylib)
 target_link_libraries(npxuc libexpat.dylib)
 ```
 
+<a id="tfiles"></a>
+### Test File Archive
+These are the test files used in the performance comparison.  The characteristics of all files are described in the dissertation.  Each file has a TSF format version and a corresponding XML formal version.  The performance test simply deserializes each version, captures, and displays the results.  The XML files are described in the following table.
+
+File Name | File Size | Description
+----------|-----------|------------
+future001.xml | 70358 | Scenario file from the Mana Game Series
+bpmnxpdl\_40a.xsd.xml | 160946 | XSD file for XPDL 2.0
+eric.map.osm.xml | 218015 | OpenStreetMap export from northern WVa
+cshl.map.osm.xml | 298233 | OSM export of a research laboratory
+sccc.map.osm.xml | 404977 | OSM export of a community college
+British-Royals.xhtml | 482666 | British Royalty Lineage from Alfred the Great
+csh\_lirr\_osm.xml | 712661 | OSM export of a train station
+exoplanet-catalog.xml | 2147926 | NASA Kepler Exoplanet Catalog
+LARGEbasicXML.xml | 3420388 | Military Strategy Game Unit Order of Battle
+
 <a id="jcode"></a>
 ### Java Source
+
+The Java code is not part of the TSF perfvormance comparison.  It provides some conversion utilities and generally demonstrates the the TSF format is easily handled in Java as well as C.
+

@@ -2,19 +2,20 @@
 
 ## Contents
 
-#### <a href="#intro">Introduction</a>
-#### <a href="#ccode">C Code Description and Build</a>
-
-### Introduction ###
+* <a href="#intro">Introduction</a>
+* <a href="#ccode">C Code Description and Build</a>
+* <a href="#jcode">Java Code</a>
 
 <a id="intro"></a>
+### Introduction ###
+
 This is the source repository for TSF code.  Java code is in the Java directory.  C code is in the C directory.  The Performance test files are in the test-files directory.
 
 The Transaction Serial Format (TSF) and the Transaction Array Model (TAM) provide full, efficient, transaction serialization facilities for devices with limited onboard energy, such as those in an Internet of Things (IoT) network.  TSF provides a compact, non-parsed, format that requires minimal processing for transaction deserialization.  TAM provides an internal data structure that needs minimal dynamic storage and directly uses the elements of TSF.  The simple lexical units of TSF do not require parsing. The lexical units contain enough information to allocate the internal TAM data structure efficiently.  TSF generality is equivalent to XML and JSON.  TSF represents any XML document or JSON object without loss of information, including whitespace.  A performance comparison of a C reference implementation of TSF and TAM to the popular Expat XML library, also written in C, shows that TSF reduces deserialization processor time by more than 80%
 
+<a id="ccode"></a>
 ### C Code Description and Build ###
 
-<a id="ccode"></a>
 The performance measurements for TSF were all done with C programs, because the benchmark library, lib_expat, was written in C.  The C code is written using an idiomatic C which follows object-oriented techniques, in effect object-oriented C.  It is strict ANSI C and does not require a C++ compiler.  I feel that OO techniques are easily adapted to C code and provide the same advantages as do OO languages.
 
 There are two versions of the TSF code, an ASCII version the uses 8-bit characters internnaly, and a UTF-8 (UCS-4 internal) version.  Since lib_expat handled UTF-8, direct comparisons to lib_expat performance were done using the URTF-8 version.  The TSF ASCII version performs better, and there are other advantages to using it, described in detail in the dissertation.  The primary difference is the use of the type `wchar_t`, `typedef`'ed as `Char`, and its corresponding functions, instead of the basic character type `char`.  In a few sources cases, the version differences are minimal and handled with conditional compiles, but in some cases, I felt that they would be easier to read and understand without conditional compiles.  Any program whose name contains the characters `UC` is a wide character (UTF-8, UCS-4 internal) version of the corresponding 8-bit source code.
@@ -102,3 +103,6 @@ add_executable(ucsbuf UCStringBuffer.c Memory.c UCStringBuffer.h Memory.h)
 target_link_libraries(npx libexpat.dylib)
 target_link_libraries(npxuc libexpat.dylib)
 ```
+
+<a id="jcode"></a>
+### Java Source
